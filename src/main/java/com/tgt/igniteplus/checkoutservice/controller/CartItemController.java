@@ -32,4 +32,18 @@ public class CartItemController {
         return cartItemService.create(cartItem);
     }
 
+    @GetMapping("/cartItem/{cartId}/{itemId}/{itemSize}")
+    public CartItem getByCartIdItemIdItemSize(@PathVariable("cartId") String cartId,
+                                              @PathVariable("itemId") String itemId,
+                                              @PathVariable("itemSize") String itemSize){
+        return cartItemService.getItemByCartIdItemIdSize(cartId,itemId,itemSize);
+    }
+
+    @PutMapping("/cartItem/{cartId}/{itemId}/{itemSize}/{itemQuantity}")
+    public CartItem getItemByCartIdItemIdSize(@PathVariable("cartId") String cartId,
+                                              @PathVariable("itemId") String itemId,
+                                              @PathVariable("itemQuantity") Integer itemQuantity,
+                                              @PathVariable("itemSize") String itemSize){
+        return cartItemService.updateItemByCartIdItemIdSize(cartId,itemId,itemQuantity,itemSize);
+    }
 }

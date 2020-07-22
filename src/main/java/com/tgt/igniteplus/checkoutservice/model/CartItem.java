@@ -1,5 +1,6 @@
 package com.tgt.igniteplus.checkoutservice.model;
 
+import jnr.ffi.annotations.In;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,15 +18,13 @@ import org.springframework.data.cassandra.core.mapping.Table;
 @Table("cart_item")
 public class CartItem {
 
-    //in group-out find categories per by group
-    //display categories for a particular group
-    //men -shirt-image
-    //men-pant
 
-    @PrimaryKeyColumn(name = "cartid",ordinal = 0,type = PrimaryKeyType.PARTITIONED)
+    @PrimaryKeyColumn(name = "cart_id",ordinal = 0,type = PrimaryKeyType.PARTITIONED)
     private String cartId;
-    @PrimaryKeyColumn(name = "itemid",ordinal = 0,type = PrimaryKeyType.CLUSTERED)
+    @PrimaryKeyColumn(name = "item_id",ordinal = 0,type = PrimaryKeyType.CLUSTERED)
     private String itemId;
+    @PrimaryKeyColumn(name = "item_size",ordinal = 1,type = PrimaryKeyType.CLUSTERED)
+    private String itemSize;
     @Column("item_title")
     private String itemTitle;
     @Column("item_group")
@@ -38,7 +37,6 @@ public class CartItem {
     private Integer itemQuantity;
     @Column("item_price")
     private Float itemPrice;
-    @Column("item_size")
-    private String itemSize;
+
 
 }
